@@ -1,0 +1,22 @@
+.titulo {
+  margin-bottom: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+.register-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background: lightblue;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

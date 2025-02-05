@@ -1,0 +1,41 @@
+<div class="event-card">
+
+  <div *ngIf="!isEditing">
+    <div class="card-body my-2">
+      <h3 class="card-title">{{ event.descricao }}</h3>
+      <hr>
+      <p class="card-text">Inicio: {{ event.horaInicio | date: 'dd/MM/yyyy HH:mm' }}</p>
+      <p class="card-text">Final: {{ event.horaTermino | date: 'dd/MM/yyyy HH:mm' }}</p>
+    </div>
+    <hr>
+    <button class="btn btn-warning p-2 mx-3" (click)="editFlag()">Editar</button>
+    <button class="btn btn-danger p-2 mx-3" (click)="deleteEvent()">Excluir</button>
+  </div>
+
+  <div *ngIf="isEditing" class="form-container">
+    <form (ngSubmit)="editEvent()">
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input id="descricao" [(ngModel)]="event.descricao" name="descricao" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="horaInicio">Hora Início</label>
+        <input id="horaInicio" [(ngModel)]="event.horaInicio" name="horaInicio" type="datetime-local" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="horaFinal">Hora Final</label>
+        <input id="horaFinal" [(ngModel)]="event.horaTermino" name="horaFinal" type="datetime-local" class="form-control" required>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary mx-3 my-2" (click)="editFlag()">Cancelar</button>
+        <button type="submit" class="btn btn-success mx-3">Editar</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+

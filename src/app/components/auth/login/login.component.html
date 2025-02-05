@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <h1 class="titulo">
+      Sistema de Cadastro de Eventos
+    </h1>
+  </div>
+  <div class="login-container">
+    <h3 class="text-center">Login</h3>
+    <form [formGroup]="loginForms" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" formControlName = "username">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="password" placeholder="Digite sua senha" formControlName = "password">
+      </div>
+      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForms.invalid">Entrar</button>
+    </form>
+    <div class="text-center mt-2">
+      <p>Não tem uma conta? <a href="#" routerLink = "/register">Cadastre-se</a></p>
+    </div>
+  </div>
+</div>
