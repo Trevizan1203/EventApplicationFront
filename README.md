@@ -1,59 +1,90 @@
-# MeuPrimeiroApp
+# Calendário de Eventos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+Este projeto é uma aplicação web para gerenciamento de eventos pessoais. Permite que usuários cadastrem, editem, removam e listem eventos de forma segura e organizada.
 
-## Development server
+## Tecnologias Utilizadas
 
-To start a local development server, run:
+### **Backend:**
+- Java 21
+- Spring Boot
+- Spring Security (JWT)
+- JPA / Hibernate
+- MariaDB
+- Maven
 
-```bash
-ng serve
-```
+### **Frontend:**
+- Angular
+- TypeScript
+- Bootstrap
+- HTML / CSS
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades
 
-## Code scaffolding
+- **Autenticação e Autorizacão:**
+  - Registro e login de usuário
+  - Token JWT para autenticação segura
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Gerenciamento de Eventos:**
+  - CRUD completo (Criar, Ler, Atualizar, Deletar)
+  - Validação para evitar sobreposição de eventos
+  - Formulários responsivos para criação e edição de eventos
 
-```bash
-ng generate component component-name
-```
+## Como Executar o Projeto
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### **1. Configuração do Backend**
 
-```bash
-ng generate --help
-```
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   cd nome-do-repositorio/backend
+   ```
+2. Configure o banco de dados PostgreSQL:
+  - Crie um banco de dados chamado `calendario_db`
+  - Configure `application.properties` com as credenciais corretas:
+    ```properties
+    spring.datasource.url=jdbc:postgresql://localhost:3306/calendario_db
+    spring.datasource.username=seu_usuario
+    spring.datasource.password=sua_senha
+    ```
+3. Execute a aplicação:
+   ```sh
+   mvn spring-boot:run
+   ```
 
-## Building
+### **2. Configuração do Frontend**
 
-To build the project run:
+1. Acesse a pasta do frontend:
+   ```sh
+   cd ../frontend
+   ```
+2. Instale as dependências:
+   ```sh
+   npm install
+   ```
+3. Inicie o servidor Angular:
+   ```sh
+   ng serve
+   ```
+4. Acesse `http://localhost:4200` no navegador.
 
-```bash
-ng build
-```
+## API Endpoints Principais
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Autenticação:**
+  - `POST /v1/users/create` - Registro de novo usuário
+  - `POST /v1/auth/login` - Autenticação do usuário e geração do token JWT
 
-## Running unit tests
+- **Eventos:**
+  - `GET /v1/users/getlist` - Lista eventos do usuário logado
+  - `POST /v1/events/create` - Cria um novo evento
+  - `PUT /v1/events/update/{id}` - Atualiza um evento existente
+  - `DELETE /v1/events/delete/{id}` - Remove um evento
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Melhorias Futuras
+- Implementação de notificações para eventos próximos
+- Convite para outros usuários participarem de eventos
+- Suporte a eventos recorrentes
+- Exportação de eventos para Google Calendar
 
-```bash
-ng test
-```
+## Licença
+Este projeto está sob a licença MIT.
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
