@@ -25,12 +25,10 @@ export class EventCardComponent {
 
   editEvent() {
     this.eventService.updateEvent(this.event.eventId, this.event);
-    window.location.reload();
   }
 
   deleteEvent() {
     this.eventService.deleteEvent(this.event.eventId);
-    window.location.reload();
   }
 
   editFlag() {

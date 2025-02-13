@@ -34,9 +34,7 @@ export class LoginComponent {
           while ((match = regex.exec(JSON.stringify(response))) !== null) {
             matches.push(match[1]);
           }
-          console.log(response);
           sessionStorage.setItem('token', matches[1]);
-          console.log(sessionStorage.getItem('token'));
           this.router.navigateByUrl('/dashboard');
         },
         error: (err) => {

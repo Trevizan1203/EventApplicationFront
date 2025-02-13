@@ -34,8 +34,8 @@ export class SidebarComponent {
         window.location.reload();
       },
       error: (err) => {
-        if (err.status === 409)
-          alert('Erro: Conflito de horários! Escolha um horário diferente.');
+        if (err.status === 400)
+          alert('Erro: ' + err.error);
         console.error('Erro ao criar evento:', err);
       }
     });

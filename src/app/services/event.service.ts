@@ -1,7 +1,7 @@
 import { Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {EventModel} from '../models/event.model';
-import { Observable} from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,6 @@ export class EventService {
   }
 
   createEvent(event: any){
-    console.log(event);
       return this.http.post(`${this.apiUrl}/create`, event, {
         headers: new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('token')}`)
       })
@@ -30,9 +29,11 @@ export class EventService {
     }).subscribe({
       next: (response) => {
         console.log('Evento editado com sucesso:', response);
+        window.location.reload();
       },
       error: (err) => {
-        console.error('Erro ao editar evento:', err);
+        if(err.status === 400)
+          alert(err.error);
       }
     });
   }
@@ -43,6 +44,7 @@ export class EventService {
     }).subscribe({
         next: (response) => {
           console.log('Evento deletado com sucesso:', response);
+          window.location.reload();
         },
         error: (err) => {
           console.error('Erro ao deletar o evento:', err);
