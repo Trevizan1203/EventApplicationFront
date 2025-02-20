@@ -13,13 +13,13 @@ import {UserService} from '../../../services/user.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
   loginForms: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
     this.loginForms = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      remeberMe: [false]
     });
   }
 

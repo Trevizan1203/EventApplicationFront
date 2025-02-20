@@ -1,22 +1,63 @@
 .titulo {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+  color: white;
+  font-weight: bold;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  width: 100vw;
-  background: white;
+  width: 40vw;
+  background: linear-gradient(225deg, cadetblue, aquamarine);
 }
 
 .login-container {
+  width: 90%;
+}
+
+.btn {
+  position: relative;
+  background: linear-gradient(225deg, mediumaquamarine, aquamarine);
+  border: 1px solid aquamarine;
+  overflow: hidden;
+  color: black;
+  z-index: 1;
+}
+
+.btn:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: white;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  color: black;
+}
+
+.btn:hover:after {
+  left: 0;
   width: 100%;
-  max-width: 600px;
-  padding: 20px;
-  background: lightblue;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn:active {
+  top: 2px;
+}
+
+.btn-auth {
+  gap: 10px;
+  padding: 15px;
+  border: none;
+  background-color: white;
+  color: black;
+  border-radius: 25px;
+}
+
+.btn-auth:hover {
+  background-color: black;
+  color: white;
 }
